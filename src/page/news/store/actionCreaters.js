@@ -29,3 +29,12 @@ export const changeIndexTab = (index) => {
     })
   }
 }
+
+export const changePageLoading = (loading) => {
+  return (dispatch) => {
+    dispatch({
+      type:constans.CHANGE_PAGE_LOADING,
+      loading: loading
+    })
+  }
+}

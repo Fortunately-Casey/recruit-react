@@ -1,5 +1,8 @@
 import axios from 'axios'
-
+import {
+  actionCreaters
+} from "../page/news/store";
+import store from '../store'
 // 环境的切换
 if (process.env.NODE_ENV === 'development') {
   axios.defaults.baseURL = '/api'
@@ -11,9 +14,28 @@ if (process.env.NODE_ENV === 'development') {
 axios.defaults.timeout = 10000
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8;multipart/form-data'
 
+/* 添加一个计数器 */
+let needLoadingRequestCount = 0
+
+function showFullScreenLoading () {
+  if (needLoadingRequestCount === 0) {
+    store.dispatch(actionCreaters.changePageLoading(true))
+  }
+  needLoadingRequestCount++
+}
+
+function tryHideFullScreenLoading () {
+  if (needLoadingRequestCount <= 0) return
+  needLoadingRequestCount--
+  if (needLoadingRequestCount === 0) {
+    store.dispatch(actionCreaters.changePageLoading(false))
+  }
+}
+
 // 请求拦截器
 axios.interceptors.request.use(
   config => {
+    showFullScreenLoading()
     // 每次发送请求之前判断是否存在token，如果存在，则统一在http请求的header都加上token，不用每次请求都手动添加了
     // 即使本地存在token，也有可能token是过期的，所以在响应拦截器中要对返回状态进行判断
     const token = window.localStorage.getItem("token");
@@ -21,12 +43,14 @@ axios.interceptors.request.use(
     return config
   },
   error => {
+    tryHideFullScreenLoading()
     return Promise.error(error)
   })
 
 // 响应拦截器
 axios.interceptors.response.use(
   response => {
+    tryHideFullScreenLoading()
     if (response.status === 200) {
       return Promise.resolve(response)
     } else {
@@ -35,7 +59,8 @@ axios.interceptors.response.use(
   },
   // 服务器状态码不是200的情况
   error => {
-    // if (error.response.status) {
+    tryHideFullScreenLoading()
+    // if (error.response.status) { 
     //   switch (error.response.status) {
     //     // 401: 未登录
     //     // 未登录则跳转登录页面，并携带当前页面的路径

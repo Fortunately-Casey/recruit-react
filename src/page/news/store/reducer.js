@@ -4,16 +4,19 @@ import {
 import * as constans from './constans';
 const defaultState = fromJS({
   chosedTab: 0,
-  newsList: []
+  newsList: [],
+  pageLoading: false
 })
 
 // 纯函数
 export default (state = defaultState, action) => {
   switch (action.type) {
     case constans.SET_NEWS_LIST:
-      return state.set("newsList",fromJS(action.list));
+      return state.set("newsList", fromJS(action.list));
     case constans.CHANGE_INDEX_TAB:
-      return state.set("chosedTab",fromJS(action.tabIndex));
+      return state.set("chosedTab", fromJS(action.tabIndex));
+    case constans.CHANGE_PAGE_LOADING:
+      return state.set("pageLoading", fromJS(action.loading));
     default:
       return state;
   }

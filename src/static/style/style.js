@@ -1,6 +1,7 @@
 import {
-  createGlobalStyle
+    createGlobalStyle
 } from 'styled-components';
+import PingFang from './PingFang.ttf'
 
 export const GlobalStyle = createGlobalStyle `
   html, body, div, span, applet, object, iframe,
@@ -50,7 +51,49 @@ export const GlobalStyle = createGlobalStyle `
       width: 100%;
       height: 100%;
   }
+  /*自定义字体*/
+  @font-face {
+    font-family: "pingfang";
+    src: url(${PingFang}) format("trueType");
+    font-weight: normal;
+    font-size: normal;
+  }
   #root {
-      height: 100%;
+    height: 100%;
+    font-family: "pingfang", Avenir, Helvetica, Arial, sans-serif;
+  }
+  .ant-spin-nested-loading {
+    height: 100%!important;
+  }
+  .ant-spin-blur{
+    height: 100%!important;
+  }
+  .ant-spin-container {
+    height: 100%!important;
+  }
+  /*滚动条样式 */
+  ::-webkit-scrollbar-track-piece {
+    -webkit-border-radius: 0;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: #b8b8b8;
+    -webkit-border-radius: 6px;
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+    border: 2px solid #fff;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    height: 50px;
+    background-color: #878987;
+    -webkit-border-radius: 6px;
   }
   `
