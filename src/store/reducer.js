@@ -8,10 +8,14 @@ import {
 import {
   reducer as LoginReducer
 } from '../page/login/store';
+import {
+  reducer as PatriarchReducer
+} from '../page/patriarch/store';
 
 const reducer = combineReducers({
   news: NewsReducer,
-  login: LoginReducer
+  login: LoginReducer,
+  patriarch: PatriarchReducer
 })
 
 export default reducer;

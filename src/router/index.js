@@ -8,6 +8,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 //路由懒加载
 import News from "../page/news/loadable";
 import Login from "../page/login/loadable";
+import Patriarch from "../page/patriarch/loadable";
 
 export default function Root() {
   return (
@@ -15,6 +16,7 @@ export default function Root() {
       <Fragment>
         <Route path="/" exact component={News}></Route>
         <Route path="/login" exact component={Login}></Route>
+        <Route path="/patriarch" component={Patriarch}></Route>
       </Fragment> 
     </BrowserRouter>
   );

@@ -60,7 +60,8 @@ export const GlobalStyle = createGlobalStyle `
   }
   #root {
     height: 100%;
-    font-family: "pingfang", Avenir, Helvetica, Arial, sans-serif;
+    font-family: "pingfang", Avenir, Helvetica, Arial, sans-serif!important;
+    font-size:14px;
   }
   .ant-spin-nested-loading {
     height: 100%!important;

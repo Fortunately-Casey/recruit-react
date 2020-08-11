@@ -2,6 +2,7 @@ import React, { PureComponent, Fragment } from "react";
 import HeaderWapper from "../../common/header";
 import { connect } from "react-redux";
 import { actionCreaters } from "./store";
+import { withRouter } from "react-router-dom";
 import {
   IndexWrapper,
   Content,
@@ -49,6 +50,11 @@ class News extends PureComponent {
       );
     }
     return pageList;
+  }
+  goToLogin() {
+    this.props.history.push({
+      pathname: "/login",
+    })
   }
   getTabModule() {
     const { chosedTab } = this.props;
@@ -98,6 +104,7 @@ class News extends PureComponent {
             <RightItem
               index={2}
               chosedIndex={this.props.chosedTab}
+              onClick={this.goToLogin.bind(this)}
             >
               <div className="title3"></div>
               <div className="logo2"></div>
@@ -140,4 +147,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(News);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(News));

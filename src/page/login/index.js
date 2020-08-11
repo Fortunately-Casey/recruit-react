@@ -216,8 +216,8 @@ class Login extends PureComponent {
     const confirm = this.confirm.bind(this);
     return (
       <Fragment>
-        <HeaderWapper></HeaderWapper>
         <LoginWapper>
+          <HeaderWapper></HeaderWapper>
           <LoginContent>
             <LoginLogo></LoginLogo>
             <LoginBox>
