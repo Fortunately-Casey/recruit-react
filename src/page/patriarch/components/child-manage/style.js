@@ -19,6 +19,7 @@ export const Card = styled.div `
   margin-left: 30px;
   padding: 0 15px;
   cursor: pointer;
+  margin-bottom: 20px;
 `;
 
 export const ApplyCode = styled.div `
@@ -37,6 +38,11 @@ export const ApplyCode = styled.div `
       font-size: 16px;
       color: ${fontColor};
       text-align: right;
+        i {
+        color: red;
+        font-weight: bold;
+        font-size: 20px;
+      }
     }
 `;
 export const ApplyInfo = styled.div `

@@ -1,16 +1,37 @@
 import {
   fromJS
 } from 'immutable';
-// import * as constans from './constans';
+import * as constans from './constans';
 const defaultState = fromJS({
-  isShowLogin: true
+  childrenList: [],
+  provinceList: [],
+  cityList: [],
+  areaList: [],
+  streetList: [],
+  communityList: [],
+  smallCommunityList: [],
+  schoolList: []
 })
 
 // 纯函数
 export default (state = defaultState, action) => {
   switch (action.type) {
-    // case constans.CHANGE_LOGIN_STATUS:
-    //   return state.set("isShowLogin", fromJS(action.isShowLogin));
+    case constans.SET_CHILD_LIST:
+      return state.set("childrenList", fromJS(action.list));
+    case constans.SET_PROVINCE_LIST:
+      return state.set("provinceList", fromJS(action.provinceList));
+    case constans.SET_CITY_LIST:
+      return state.set("cityList", fromJS(action.cityList));
+    case constans.SET_AREA_LIST:
+      return state.set("areaList", fromJS(action.areaList));
+    case constans.SET_STREET_LIST:
+      return state.set("streetList", fromJS(action.streetList));
+    case constans.SET_COMMUNITY_LIST:
+      return state.set("communityList", fromJS(action.communityList));
+    case constans.SET_SMALLCOMMUNITY_LIST:
+      return state.set("smallCommunityList", fromJS(action.smallCommunityList));
+    case constans.SET_SCHOOLLIST_LIST:
+      return state.set("schoolList", fromJS(action.schoolList));
     default:
       return state;
   }

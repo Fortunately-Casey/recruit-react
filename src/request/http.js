@@ -1,5 +1,8 @@
 import axios from 'axios'
 import {
+  message
+} from 'antd';
+import {
   actionCreaters
 } from "../page/news/store";
 import store from '../store'
@@ -17,14 +20,14 @@ axios.defaults.timeout = 10000
 /* 添加一个计数器 */
 let needLoadingRequestCount = 0
 
-function showFullScreenLoading () {
+function showFullScreenLoading() {
   if (needLoadingRequestCount === 0) {
     store.dispatch(actionCreaters.changePageLoading(true))
   }
   needLoadingRequestCount++
 }
 
-function tryHideFullScreenLoading () {
+function tryHideFullScreenLoading() {
   if (needLoadingRequestCount <= 0) return
   needLoadingRequestCount--
   if (needLoadingRequestCount === 0) {
@@ -50,6 +53,16 @@ axios.interceptors.request.use(
 // 响应拦截器
 axios.interceptors.response.use(
   response => {
+    if (response.data.errorCode === "03009") {
+      // message.warning('身份验证过期!', 3, () => {
+        
+      // });
+      window.location.href = `${window.location.origin}/login`
+      return;
+    }
+    if (!response.data.success) {
+      message.warning(response.data.message)
+    }
     tryHideFullScreenLoading()
     if (response.status === 200) {
       return Promise.resolve(response)

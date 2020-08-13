@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import { withRouter } from "react-router-dom";
 import HeaderWapper from "../../common/header";
+import UserInfo from "../../common/user-info";
 import ChildManage from "./components/child-manage";
 import AddChild from "./components/add-child";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
@@ -12,6 +13,7 @@ class Patriarch extends PureComponent {
       <PatriarchWrapper>
         <PatriachTop>
           <HeaderWapper></HeaderWapper>
+          <UserInfo></UserInfo>
         </PatriachTop>
         <PatriarchContent>
           <BrowserRouter>
@@ -25,7 +27,7 @@ class Patriarch extends PureComponent {
               exact
               component={AddChild}
             ></Route>
-            <Redirect to="/patriarch/childManage" />
+            <Redirect to="/patriarch/addChild" />
           </BrowserRouter>
         </PatriarchContent>
       </PatriarchWrapper>

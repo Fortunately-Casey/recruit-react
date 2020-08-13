@@ -58,6 +58,26 @@ export const GlobalStyle = createGlobalStyle `
     font-weight: normal;
     font-size: normal;
   }
+  @font-face {font-family: "iconfont";
+    src: url('../iconfont/iconfont.eot?t=1597201874577'); /* IE9 */
+    src: url('../iconfont/iconfont.eot?t=1597201874577#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAALUAAsAAAAABpQAAAKHAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcAqBEIEYATYCJAMICwYABCAFhG0HPhvMBcgekiSEIAFFJaRe4CcojuD7/djvue+imlySJ9EmWiGRaERCUmmRFJiuIfLl/+b0l2GbvecLpAbMgUualq+XAaKRU2bsN+EmCRoqK/+fz3M5vfn83oHcVf95L6e9aaxpCwOMAynAvTAKJOASyrhh7AKXcJ9ApQ4eipXa5m7Qy6xlgTiRRAb0uZgss2K5UFqzN4s70ChP58prALfh9+MHQqEnKSlYbVvHNTyUf2CXqZb+lwz7BMRBQIdLUGAMyMRebW6DSjBepTKn1gP21Rx88L/vFXt1CfbXWY3VoA2q70njam9VPoHMeIaAuVFvRtGqNZ9Zd9w8nBnBcx7gZ5Pt8jI0r/3Jeiza+L6egt6+/O5ed093WehrPMFVqkSRKpL6Yi9FeaSRdU/m/Onx9rkxO93+1uGeZfzvOm7/O4ZbT4niV8pZP8uRfgWCifWl2KGt+FVvyuDdhcdQ3S9A+f79wX/qyMD//xxcZ3lSVs0Qlwzpzm+q1IP+gxVq9DzW3nJTpVCu5dYCZdpTFMr1kZkdQ4kqkyhVbh6VRtUdrtKEUIlcgRHrAKHeFZJabyjUuyEz+4QSrV5Qqj5UqHQQrjOrDIRkrCKYoZhH7DSSuHRKcHzUGDV3YlFOMCSrC4VeTHJSEgV9gWKxDqcwmWNDbkIMUSoggaSTqBY8hhOJNMqQdAxz1BelNFPo9wt1L/Jx6SQYLSMwBoXxENY0RMJJSxH84ZSx9PlOmEiWwCAtfTXFXhiRI02OBPkEepB15lSvvnt5JmeCKISiBIiASEtCasEsLCEhDcnUz4rBOJRPdEQmo5DfHiT0NfvWtya/7ghUshwp7CmF5tMok+KicjBNnJSDgXAkEAQAAA==') format('woff2'),
+    url('../iconfont/iconfont.woff?t=1597201874577') format('woff'),
+    url('../iconfont/iconfont.ttf?t=1597201874577') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url('../iconfont/iconfont.svg?t=1597201874577#iconfont') format('svg'); /* iOS 4.1- */
+  }
+
+  .iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .icon-shanchushangwu103401:before {
+    content: "\e750";
+  }
   #root {
     height: 100%;
     font-family: "pingfang", Avenir, Helvetica, Arial, sans-serif!important;
