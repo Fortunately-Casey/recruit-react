@@ -1,6 +1,9 @@
 import * as api from "../../../request/serviceList";
 import http from "../../../request/http";
 import * as constans from "./constans";
+import {
+  message
+} from "antd";
 
 const setChildList = (data) => {
   return {
@@ -134,24 +137,26 @@ export const getSchoolList = (id) => {
   }
 }
 
+export const deleteInfo = (id) => {
+  return (dispatch) => {
+    http.delete(api.DELETESTUDENTBYID, {
+      studentID: id
+    }).then((resp) => {
+      if (resp.success) {
+        message.success("删除成功！");
+        dispatch(getChildList())
+        dispatch(showDeleteModal())
+      }
+    })
+  }
+}
 
-
-
-
-// export const changeLoginStatus = (isShow) => {
-//   return (dispatch) => {
-//     dispatch({
-//       type:constans.CHANGE_LOGIN_STATUS,
-//       isShowLogin:!isShow
-//     })
-//   }
-// }
-
-// export const changePageLoading = (loading) => {
-//   return (dispatch) => {
-//     dispatch({
-//       type:constans.CHANGE_PAGE_LOADING,
-//       loading: loading
-//     })
-//   }
-// }
+export const showDeleteModal = (isShow, deleteID) => {
+  return (dispatch) => {
+    dispatch({
+      type: constans.SET_ISSHOW_DELETE,
+      isShowDelete: isShow,
+      deleteID: deleteID
+    })
+  }
+}

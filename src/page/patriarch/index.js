@@ -27,7 +27,7 @@ class Patriarch extends PureComponent {
               exact
               component={AddChild}
             ></Route>
-            <Redirect to="/patriarch/addChild" />
+            <Redirect to="/patriarch/childManage" />
           </BrowserRouter>
         </PatriarchContent>
       </PatriarchWrapper>

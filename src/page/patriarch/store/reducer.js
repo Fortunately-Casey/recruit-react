@@ -10,7 +10,9 @@ const defaultState = fromJS({
   streetList: [],
   communityList: [],
   smallCommunityList: [],
-  schoolList: []
+  schoolList: [],
+  isShowDelete: false,
+  deleteID: ""
 })
 
 // 纯函数
@@ -32,6 +34,11 @@ export default (state = defaultState, action) => {
       return state.set("smallCommunityList", fromJS(action.smallCommunityList));
     case constans.SET_SCHOOLLIST_LIST:
       return state.set("schoolList", fromJS(action.schoolList));
+    case constans.SET_ISSHOW_DELETE:
+      return state.merge({
+        "isShowDelete": fromJS(action.isShowDelete),
+        "deleteID": fromJS(action.deleteID)
+      })
     default:
       return state;
   }

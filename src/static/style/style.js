@@ -1,5 +1,5 @@
 import {
-    createGlobalStyle
+  createGlobalStyle
 } from 'styled-components';
 import PingFang from './PingFang.ttf'
 
@@ -116,5 +116,14 @@ export const GlobalStyle = createGlobalStyle `
     height: 50px;
     background-color: #878987;
     -webkit-border-radius: 6px;
+  }
+  .ant-input[disabled]{
+    color:#2d3748
+  }
+  .ant-select-disabled.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    color:#2d3748
+  }
+  .ant-picker-input > input[disabled] {
+    color:#2d3748
   }
   `

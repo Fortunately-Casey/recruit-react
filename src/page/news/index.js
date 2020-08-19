@@ -25,7 +25,6 @@ class News extends PureComponent {
   }
   getNewsList() {
     const { newslist } = this.props;
-    console.log(newslist);
     let news = [];
     newslist.map((item) => {
       return news.push(
