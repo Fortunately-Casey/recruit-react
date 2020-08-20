@@ -5,7 +5,7 @@ export const PatriarchWrapper = styled.div `
   flex-direction: column;
 `;
 
-export const PatriachTop = styled.div `
+export const PatriarchTop = styled.div `
   position: relative;
 `;
 

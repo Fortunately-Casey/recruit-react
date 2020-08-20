@@ -112,8 +112,6 @@ class Login extends PureComponent {
               pathname: "/patriarch",
             });
           }
-        } else {
-          message.error(resp.message);
         }
       });
     } else {
@@ -139,8 +137,6 @@ class Login extends PureComponent {
             confirmPW: "",
           }));
           this.props.changeLoginStatus(false);
-        } else {
-          message.error(resp.message);
         }
       });
     }

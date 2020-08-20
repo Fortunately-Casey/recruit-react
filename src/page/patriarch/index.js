@@ -5,16 +5,16 @@ import UserInfo from "../../common/user-info";
 import ChildManage from "./components/child-manage";
 import AddChild from "./components/add-child";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
-import { PatriarchWrapper, PatriachTop, PatriarchContent } from "./style";
+import { PatriarchWrapper, PatriarchTop, PatriarchContent } from "./style";
 
 class Patriarch extends PureComponent {
   render() {
     return (
       <PatriarchWrapper>
-        <PatriachTop>
+        <PatriarchTop>
           <HeaderWapper></HeaderWapper>
           <UserInfo></UserInfo>
-        </PatriachTop>
+        </PatriarchTop>
         <PatriarchContent>
           <BrowserRouter>
             <Route
