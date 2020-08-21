@@ -23,7 +23,7 @@ class TabBar extends PureComponent {
     });
   }
   render() {
-    const { routerIndex, isShowConfig } = this.props;
+    const { routerIndex, isShowConfig,exportExcel } = this.props;
     return (
       <Tabbar>
         <Link to={"/schoolConfig/configModule"}>
@@ -38,7 +38,7 @@ class TabBar extends PureComponent {
                 账号管理
               </TabItem>
             </Link>
-            <OutputButton>导出摸底情况</OutputButton>
+            <OutputButton onClick={exportExcel}>导出摸底情况</OutputButton>
           </Fragment>
         ) : null}
       </Tabbar>
@@ -57,6 +57,9 @@ const mapDispatchToProps = (dispatch) => ({
   setIsShowConfig(isShow) {
     dispatch(actionCreaters.setIsShowConfig(isShow));
   },
+  exportExcel() {
+    dispatch(actionCreaters.exportExcel());
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(TabBar));

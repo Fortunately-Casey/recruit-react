@@ -237,7 +237,7 @@ export const setRouterIndex = (index) => {
   return (dispatch) => {
     dispatch({
       type: constans.SET_ROUTER_INDEX,
-      index:index
+      index: index
     })
   }
 }
@@ -246,8 +246,19 @@ export const setIsShowConfig = (isShow) => {
   return (dispatch) => {
     dispatch({
       type: constans.SET_ISSHOW_CONFIG,
-      isShow:isShow
+      isShow: isShow
     })
+  }
+}
+
+export const exportExcel = () => {
+  return () => {
+    http.get(api.EXPORTSTUDENTBYONEORMORE).then(resp => {
+      if (resp.success) {
+        console.log(resp.message)
+        // window.location.href = resp.message;
+      }
+    });
   }
 }
 
