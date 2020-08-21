@@ -11,11 +11,15 @@ import {
 import {
   reducer as PatriarchReducer
 } from '../page/patriarch/store';
+import {
+  reducer as SchoolConfigReducer
+} from "../page/school-config/store"
 
 const reducer = combineReducers({
   news: NewsReducer,
   login: LoginReducer,
-  patriarch: PatriarchReducer
+  patriarch: PatriarchReducer,
+  schoolConfig: SchoolConfigReducer
 })
 
 export default reducer;

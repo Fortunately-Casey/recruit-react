@@ -10,7 +10,7 @@ class AccountNumber extends PureComponent {
     });
   }
   render() {
-    return (<div>
+    return (<div onClick={this.toConfigModule.bind(this)}>
       账号管理
     </div>)
   }

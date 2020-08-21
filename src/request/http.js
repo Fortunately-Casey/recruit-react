@@ -5,7 +5,7 @@ import {
 import {
   actionCreaters
 } from "../page/news/store";
-import store from '../store'
+import store from '../store';
 // 环境的切换
 if (process.env.NODE_ENV === 'development') {
   axios.defaults.baseURL = '/api'

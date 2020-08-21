@@ -3,21 +3,17 @@ import HeaderWapper from "../../common/header";
 import UserInfo from "../../common/user-info";
 import ConfigModule from "./components/config-module";
 import AccountConfig from "./components/account-number";
-
+import TabBar from "./components/tab-bar";
 import {
   BrowserRouter,
   Route,
   Redirect,
-  Link,
   withRouter,
 } from "react-router-dom";
 import {
   SchoolConfigWrapper,
   SchoolConfigTop,
   SchoolConfigContent,
-  TabBar,
-  TabItem,
-  OutputButton,
 } from "./style";
 
 class SchoolConfig extends PureComponent {
@@ -40,22 +36,7 @@ class SchoolConfig extends PureComponent {
         </SchoolConfigTop>
         <SchoolConfigContent>
           <BrowserRouter>
-            <TabBar>
-              {/* <Link to={"/schoolConfig/configModule"}> */}
-              <TabItem
-                className="chosed"
-                onClick={this.toConfigModule.bind(this)}
-              >
-                学校配置
-              </TabItem>
-              {/* </Link> */}
-              {/* <Link to={"/schoolConfig/accountConfig"}> */}
-              <TabItem onClick={this.toAccountConfig.bind(this)}>
-                账号管理
-              </TabItem>
-              {/* </Link> */}
-              <OutputButton>导出摸底情况</OutputButton>
-            </TabBar>
+            <TabBar></TabBar>
             <Route
               exact
               path="/schoolConfig/configModule"

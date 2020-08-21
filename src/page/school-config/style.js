@@ -13,9 +13,11 @@ export const SchoolConfigTop = styled.div `
 export const SchoolConfigContent = styled.div `
   background-color: #edf1f7;
   flex: 1;
+  display: flex;
+  flex-direction: column;
 `;
 
-export const TabBar = styled.div `
+export const Tabbar = styled.div `
   height: 48px;
   background-color: #fff;
   display: flex;
