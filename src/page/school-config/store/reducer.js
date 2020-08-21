@@ -16,7 +16,17 @@ const defaultState = fromJS({
   boundaryList: [],
   communityList: [],
   isShowDelete: false,
-  deleteID: ""
+  deleteID: "",
+  userList: [],
+  adminUser: "",
+  total: 0,
+  pageSize: 1,
+  isShowPassword: false,
+  editID: "",
+  current: 1,
+  confirmLoading: false,
+  routerIndex: 1,
+  isShowConfig: false
 })
 
 // 纯函数
@@ -58,6 +68,24 @@ export default (state = defaultState, action) => {
         "isShowDelete": fromJS(action.isShowDelete),
         "deleteID": fromJS(action.deleteID),
       })
+    case constans.SET_USERLIST:
+      return state.merge({
+        "userList": fromJS(action.userList),
+        "adminUser": fromJS(action.adminUser),
+        "total": fromJS(action.total),
+        "current": fromJS(action.current)
+      })
+    case constans.SHOW_EDIT_PASSWORD:
+      return state.merge({
+        "isShowPassword": fromJS(action.isShowPassword),
+        "editID": fromJS(action.editID),
+      })
+    case constans.SET_LOADING:
+      return state.set("confirmLoading", fromJS(action.confirmLoading));
+    case constans.SET_ROUTER_INDEX:
+      return state.set("routerIndex", fromJS(action.index));
+    case constans.SET_ISSHOW_CONFIG:
+      return state.set("isShowConfig", fromJS(action.isShow));
     default:
       return state;
   }

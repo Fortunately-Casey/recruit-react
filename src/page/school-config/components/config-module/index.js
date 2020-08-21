@@ -177,25 +177,30 @@ class ConfigModule extends PureComponent {
         title: "街道",
         dataIndex: "streetName",
         key: "streetName",
+        align: "center",
       },
       {
         title: "社区",
         dataIndex: "communityName",
         key: "communityName",
+        align: "center",
       },
       {
         title: "学区",
         dataIndex: "boundaryName",
         key: "boundaryName",
+        align: "center",
       },
       {
         title: "小区",
         dataIndex: "smallCommunityName",
         key: "smallCommunityName",
+        align: "center",
       },
       {
         title: "操作",
         key: "option",
+        align: "center",
         render: (text, record) => (
           <Space size="middle">
             <Button

@@ -15,7 +15,7 @@ class UserInfo extends PureComponent {
   }
   getUserInfo() {
     let userInfo = JSON.parse(window.localStorage.getItem("userInfo"));
-    if(!userInfo) {
+    if (!userInfo) {
       return;
     }
     this.setState(() => ({
@@ -52,8 +52,8 @@ class UserInfo extends PureComponent {
       <UserInfoWrapper>
         <User>
           <Info>
-            <div className="name">18662858322</div>
-            <div className="type">学生家长</div>
+            <div className="name">{this.state.userName}</div>
+            <div className="type">{this.state.userType}</div>
           </Info>
           <Logo></Logo>
           <DropDown onClick={this.dropdown.bind(this)}></DropDown>

@@ -33,6 +33,22 @@ const setCommunityList = (list) => {
   }
 }
 
+const setUserList = (list, name, total, current) => {
+  return {
+    type: constans.SET_USERLIST,
+    userList: list,
+    adminUser: name,
+    total,
+    current,
+  }
+}
+
+const setConfirmLoading = (loading) => {
+  return {
+    type: constans.SET_LOADING,
+    confirmLoading: loading
+  }
+}
 
 export const getConfig = () => {
   return (dispatch) => {
@@ -184,6 +200,66 @@ export const deleteCommunity = (deleteID) => {
       if (resp.success) {
         dispatch(toggleDelete(false, ""));
         dispatch(getConfig());
+      }
+    })
+  }
+}
+
+export const getUserList = (name, page, pageSize) => {
+  return (dispatch) => {
+    http.post(api.GETPARENTACCOUNTBYSCHOOLID, {
+      currPage: page,
+      pageSize: pageSize,
+      adminUser: name
+    }).then((resp) => {
+      if (resp.success) {
+        let res = resp.data;
+        res.forEach((item, index) => {
+          item.key = index;
+        })
+        dispatch(setUserList(res, name, resp.page.totalCount, page))
+      }
+    })
+  }
+}
+
+export const showPassword = (id, isShow) => {
+  return (dispatch) => {
+    dispatch({
+      type: constans.SHOW_EDIT_PASSWORD,
+      editID: id,
+      isShowPassword: isShow
+    })
+  }
+}
+
+export const setRouterIndex = (index) => {
+  return (dispatch) => {
+    dispatch({
+      type: constans.SET_ROUTER_INDEX,
+      index:index
+    })
+  }
+}
+
+export const setIsShowConfig = (isShow) => {
+  return (dispatch) => {
+    dispatch({
+      type: constans.SET_ISSHOW_CONFIG,
+      isShow:isShow
+    })
+  }
+}
+
+export const commitEditPassword = (params, pageSize) => {
+  return (dispatch) => {
+    dispatch(setConfirmLoading(true))
+    http.post(api.PARENTACCOUNTCONFIG, params).then((resp) => {
+      dispatch(setConfirmLoading(false))
+      if (resp.success) {
+        message.success("修改成功!")
+        dispatch(getUserList("", 1, pageSize))
+        dispatch(showPassword("", false))
       }
     })
   }
