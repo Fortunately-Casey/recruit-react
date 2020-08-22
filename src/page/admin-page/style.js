@@ -40,3 +40,19 @@ export const TabItem = styled.div `
   margin-left: 40px;
   line-height: 48px;
 `;
+
+export const AddButton = styled.div `
+  cursor: pointer;
+  height: 48px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  color: #728096;
+  letter-spacing: 1.7px;
+  text-align: center;
+  margin-left: 40px;
+  line-height: 48px;
+  width: 103px;
+  position: absolute;
+  right: 100px;
+  top: 0;
+`;

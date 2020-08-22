@@ -13,13 +13,17 @@ import {
 } from '../page/patriarch/store';
 import {
   reducer as SchoolConfigReducer
-} from "../page/school-config/store"
+} from "../page/school-config/store";
+import {
+  reducer as AdminPageReducer
+} from "../page/admin-page/store"
 
 const reducer = combineReducers({
   news: NewsReducer,
   login: LoginReducer,
   patriarch: PatriarchReducer,
-  schoolConfig: SchoolConfigReducer
+  schoolConfig: SchoolConfigReducer,
+  adminPage: AdminPageReducer,
 })
 
 export default reducer;

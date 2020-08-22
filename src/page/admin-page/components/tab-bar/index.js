@@ -1,59 +1,66 @@
-import React, { PureComponent, Fragment } from "react";
+import React, { PureComponent } from "react";
 import { withRouter, Link } from "react-router-dom";
-import { Tabbar, TabItem, OutputButton } from "../../style";
+import { Tabbar, TabItem, AddButton } from "../../style";
 import { connect } from "react-redux";
 import { actionCreaters } from "../../store";
 
 class TabBar extends PureComponent {
   componentDidMount() {
-    let { history, setRouterIndex, setIsShowConfig } = this.props;
-    let schoolCode = window.localStorage.getItem("schoolCode");
-    if (schoolCode === "04") {
-      setIsShowConfig(false);
-    } else {
-      setIsShowConfig(true);
-    }
+    let { history, setRouterIndex, setIsShowAdd } = this.props;
     history.listen((event) => {
       let text = event.pathname;
-      if (text === "/schoolConfig/configModule") {
+      if (text === "/adminPage/articleList") {
         setRouterIndex(1);
-      } else {
+        setIsShowAdd(false);
+      } else if (text === "/adminPage/schoolStatistics") {
         setRouterIndex(2);
+        setIsShowAdd(false);
+      } else if (text === "/adminPage/addArticle") {
+        setRouterIndex(3);
+        setIsShowAdd(true);
       }
     });
   }
   render() {
-    const { routerIndex, isShowConfig, exportExcel } = this.props;
+    const { routerIndex, isShowAdd } = this.props;
     return (
       <Tabbar>
-        <Link to={"/schoolConfig/configModule"}>
+        <Link to={"/adminPage/articleList"}>
           <TabItem className={routerIndex === 1 ? "chosed" : ""}>
-            学校配置
+            发文配置
           </TabItem>
         </Link>
-        <Link to={"/schoolConfig/accountConfig"}>
+        <Link to={"/adminPage/schoolStatistics"}>
           <TabItem className={routerIndex === 2 ? "chosed" : ""}>
-            账号管理
+            学校统计
           </TabItem>
         </Link>
+        {isShowAdd ? (
+          <TabItem className={routerIndex === 3 ? "chosed" : ""}>
+            新增发文
+          </TabItem>
+        ) : null}
+        {!isShowAdd ? (
+          <Link to={"/adminPage/addArticle"}>
+            <AddButton>新增发文</AddButton>
+          </Link>
+        ) : null}
       </Tabbar>
     );
   }
 }
+
 const mapStateToProps = (state) => ({
-  routerIndex: state.getIn(["schoolConfig", "routerIndex"]),
-  isShowConfig: state.getIn(["schoolConfig", "isShowConfig"]),
+  routerIndex: state.getIn(["adminPage", "routerIndex"]),
+  isShowAdd: state.getIn(["adminPage", "isShowAdd"]),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setRouterIndex(index) {
     dispatch(actionCreaters.setRouterIndex(index));
   },
-  setIsShowConfig(isShow) {
-    dispatch(actionCreaters.setIsShowConfig(isShow));
-  },
-  exportExcel() {
-    dispatch(actionCreaters.exportExcel());
+  setIsShowAdd(isShow) {
+    dispatch(actionCreaters.setIsShowAdd(isShow));
   },
 });
 
