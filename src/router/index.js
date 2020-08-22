@@ -10,6 +10,7 @@ import News from "../page/news/loadable";
 import Login from "../page/login/loadable";
 import Patriarch from "../page/patriarch/loadable";
 import SchoolConfig from "../page/school-config/loadable";
+import AdminPage from "../page/admin-page/loadable";
 
 export default function Root() {
   return (
@@ -19,7 +20,8 @@ export default function Root() {
         <Route path="/login" exact component={Login}></Route>
         <Route path="/patriarch" component={Patriarch}></Route>
         <Route path="/schoolConfig" component={SchoolConfig}></Route>
-      </Fragment> 
+        <Route path="/adminPage" component={AdminPage}></Route>
+      </Fragment>
     </BrowserRouter>
   );
 }
