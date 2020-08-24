@@ -11,6 +11,8 @@ import Login from "../page/login/loadable";
 import Patriarch from "../page/patriarch/loadable";
 import SchoolConfig from "../page/school-config/loadable";
 import AdminPage from "../page/admin-page/loadable";
+import UserManual from "../page/user-manual/loadable";
+import SchoolAudit from "../page/school-audit/loadable";
 
 export default function Root() {
   return (
@@ -21,6 +23,8 @@ export default function Root() {
         <Route path="/patriarch" component={Patriarch}></Route>
         <Route path="/schoolConfig" component={SchoolConfig}></Route>
         <Route path="/adminPage" component={AdminPage}></Route>
+        <Route path="/userManual" component={UserManual}></Route>
+        <Route path="/schoolAudit" component={SchoolAudit}></Route>
       </Fragment>
     </BrowserRouter>
   );

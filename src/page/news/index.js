@@ -28,7 +28,12 @@ class News extends PureComponent {
     let news = [];
     newslist.map((item) => {
       return news.push(
-        <Message key={item.get("rowNumber")}>
+        <Message
+          key={item.get("rowNumber")}
+          onClick={() => {
+            this.toNews(item.get("titleUrl"));
+          }}
+        >
           <div className="voice"></div>
           {item.get("title")}
         </Message>
@@ -51,9 +56,10 @@ class News extends PureComponent {
     return pageList;
   }
   goToLogin() {
-    this.props.history.push({
-      pathname: "/login",
-    })
+    window.open(`${window.location.origin}/login`);
+  }
+  toUserManual() {
+    window.open(`${window.location.origin}/userManual`);
   }
   getTabModule() {
     const { chosedTab } = this.props;
@@ -80,6 +86,9 @@ class News extends PureComponent {
         </Fragment>
       );
     }
+  }
+  toNews(url) {
+    window.open(url);
   }
   render() {
     return (
@@ -121,6 +130,7 @@ class News extends PureComponent {
             <RightItem
               index={3}
               chosedIndex={this.props.chosedTab}
+              onClick={this.toUserManual.bind(this)}
             >
               <div className="title5"></div>
               <div className="logo4"></div>

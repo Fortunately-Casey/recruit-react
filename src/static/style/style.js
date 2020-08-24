@@ -50,6 +50,8 @@ export const GlobalStyle = createGlobalStyle `
   html,body {
       width: 100%;
       height: 100%;
+      min-width: 1680px;
+      min-height: 900px;
   }
   /*自定义字体*/
   @font-face {
@@ -125,5 +127,11 @@ export const GlobalStyle = createGlobalStyle `
   }
   .ant-picker-input > input[disabled] {
     color:#2d3748
+  }
+  .ant-carousel .slick-dots li button {
+    background: gray;
+  }
+  .ant-carousel .slick-dots li.slick-active button {
+    background: gray;
   }
   `
