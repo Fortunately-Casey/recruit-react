@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import HeaderWapper from "../../common/header";
 import UserInfo from "../../common/user-info";
 import TabBar from "./components/tab-bar";
-import { BrowserRouter, Route, Redirect, withRouter } from "react-router-dom";
+import { BrowserRouter, Route, withRouter } from "react-router-dom";
 import { AdminPageWrapper, Top, Content } from "./style";
 import ArticleList from "./components/article-list";
 import SchoolStatistic from "./components/school-statistic";
@@ -36,7 +36,6 @@ class AdminPage extends PureComponent {
               component={AddArticle}
               key={3}
             ></Route>
-            <Redirect to="/adminPage/articleList"></Redirect>
           </BrowserRouter>
         </Content>
       </AdminPageWrapper>

@@ -97,7 +97,7 @@ class Login extends PureComponent {
             });
           } else if (resp.data.identity === "00") {
             history.push({
-              pathname: "/adminPage",
+              pathname: "/adminPage/articleList",
             });
           } else if (resp.data.identity === "02") {
             history.push({

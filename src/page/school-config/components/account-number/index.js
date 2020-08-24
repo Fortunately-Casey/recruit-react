@@ -202,6 +202,7 @@ class AccountNumber extends PureComponent {
     );
   }
 }
+
 const mapStateToProp = (state) => ({
   userList: state.getIn(["schoolConfig", "userList"]),
   adminUser: state.getIn(["schoolConfig", "adminUser"]),
@@ -224,6 +225,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(actionCreaters.commitEditPassword(params, pageSize));
   },
 });
+
 export default connect(
   mapStateToProp,
   mapDispatchToProps
