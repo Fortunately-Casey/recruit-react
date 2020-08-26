@@ -17,16 +17,6 @@ import {
 } from "./style";
 
 class SchoolConfig extends PureComponent {
-  toConfigModule() {
-    this.props.history.push({
-      pathname: "/schoolConfig/configModule",
-    });
-  }
-  toAccountConfig() {
-    this.props.history.push({
-      pathname: "/schoolConfig/accountConfig",
-    });
-  }
   render() {
     return (
       <SchoolConfigWrapper>

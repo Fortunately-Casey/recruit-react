@@ -4,6 +4,7 @@ import UserInfo from "../../common/user-info";
 import { BrowserRouter, Route, Redirect, withRouter } from "react-router-dom";
 import AuditList from "./components/audit-list";
 import SavedList from "./components/saved-list";
+import AuditChild from "./components/audit-child";
 import TabBar from "./components/tab-bar";
 import { SchoolAuditWrapper, Top, Content } from "./style";
 class SchoolAudit extends PureComponent {
@@ -15,11 +16,12 @@ class SchoolAudit extends PureComponent {
           <UserInfo></UserInfo>
         </Top>
         <Content>
-          <TabBar></TabBar>
           <BrowserRouter>
+          <TabBar></TabBar>
             <Route path="/schoolAudit/auditList" component={AuditList}></Route>
             <Route path="/schoolAudit/savedList" component={SavedList}></Route>
-            <Redirect to="/schoolAudit/auditList"></Redirect>
+            <Route path="/schoolAudit/auditChild" component={AuditChild}></Route>
+            <Redirect to="/schoolAudit/savedList"></Redirect>
           </BrowserRouter>
         </Content>
       </SchoolAuditWrapper>

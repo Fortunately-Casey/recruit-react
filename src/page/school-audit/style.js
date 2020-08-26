@@ -23,6 +23,9 @@ export const TabBarWrapper = styled.div `
   display: flex;
   position: relative;
   font-weight: bold;
+  .chosed {
+    color: ${fontColor};
+  }
 `
 
 export const TabItem = styled.div `

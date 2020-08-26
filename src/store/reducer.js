@@ -17,6 +17,10 @@ import {
 import {
   reducer as AdminPageReducer
 } from "../page/admin-page/store"
+import {
+  reducer as SchoolAuditReducer
+} from "../page/school-audit/store"
+
 
 const reducer = combineReducers({
   news: NewsReducer,
@@ -24,6 +28,7 @@ const reducer = combineReducers({
   patriarch: PatriarchReducer,
   schoolConfig: SchoolConfigReducer,
   adminPage: AdminPageReducer,
+  schoolAudit: SchoolAuditReducer,
 })
 
 export default reducer;
